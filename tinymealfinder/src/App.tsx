@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { searchMealsByName } from './backend/ApiCalls';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          onClick={e => searchMealsByName("S")}
           target="_blank"
           rel="noopener noreferrer"
         >
