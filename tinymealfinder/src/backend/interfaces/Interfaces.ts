@@ -1,4 +1,4 @@
-interface Meal {
+export interface Meal {
 	name: string,
 	id: string
 }
