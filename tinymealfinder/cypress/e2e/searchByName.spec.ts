@@ -1,14 +1,10 @@
-describe("bauch spec", () => {
-  it("is visible", () => {
+describe("Meal finder ", () => {
+  it("should be visible", () => {
     cy.visit("http://localhost:3000");
   });
 
-  it("input possible", () => {
-    cy.get("input").type("Max was here");
-    cy.contains("Add Todo").click();
-  });
-
-  it("check checkbox", () => {
-    cy.get("label input").check();
+  it("should allow text input", () => {
+    cy.get("input").type("Spagettie");
+    cy.contains("Search").click();
   });
 });
