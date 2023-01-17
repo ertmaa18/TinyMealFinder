@@ -3,11 +3,12 @@ export interface Meal {
 	id: string,
 	category: string,
 	instructions: string,
-	ingredients: Ingredient[]
+	tutorial: string,
+	ingredients?: Ingredient[]
 }
 
 export interface Ingredient {
   name: string;
-  amount: string;
+  amount?: string;
 }
 

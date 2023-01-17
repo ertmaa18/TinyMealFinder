@@ -13,7 +13,7 @@ function App() {
         </p>
         <a
           className="App-link"
-          onClick={e => searchMealsByName("S")}
+          onClick={e =>  console.log(searchMealsByName("S"))}
           target="_blank"
           rel="noopener noreferrer"
         >
