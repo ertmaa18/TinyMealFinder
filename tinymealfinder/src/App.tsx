@@ -37,7 +37,13 @@ function App() {
   // die Funktion genau einmal aufgerufen.
   // zum laden
   useEffect(() => {
+    const fetchMeals = async () => {
+      const data = await fetchMealsByName('');
+      setMeals(data)
+    }
+
     setMeals(new Array<MealDto>());
+    fetchMeals();
   }, [])
 
 
