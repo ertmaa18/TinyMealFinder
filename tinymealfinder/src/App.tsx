@@ -47,6 +47,12 @@ function App() {
   }, [])
 
 
+  var onSubmitCallback = function(e:any){
+    e.preventDefault();
+    search();
+    return false;
+  }
+
   var search = async function(){
     let searchInput = (document.getElementById("searchInput") as HTMLInputElement).value
     let newMeals:Array<MealDto> = await fetchMealsByName(searchInput);
@@ -86,7 +92,7 @@ function App() {
               fetchMealsByName(document.getElementById('searchInput').value)
               */
             }
-            <Form className="d-flex">
+            <Form className="d-flex" onSubmit={onSubmitCallback}>
               <Form.Control
                 id='searchInput'
                 type="search"
