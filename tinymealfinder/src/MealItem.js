@@ -1,9 +1,18 @@
 import { display } from '@mui/system'
 import React from 'react'
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
+
 
 export default function MealItem({meal}) {
-  function handleDetailsButtonClick(){
-      alert("DETAILS!")
+
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+  function closeModal() {
+    setIsOpen(false);
+  }
+  function openModal(){
+    setIsOpen(true);
   }
 
   return (
@@ -12,8 +21,18 @@ export default function MealItem({meal}) {
       <div class="card-body">
         <h4 class="card-title">{meal.strMeal}</h4>
         <p class="card-text">Category: {meal.strCategory}</p>
-        <button onClick={handleDetailsButtonClick} class="btn btn-primary">See Details</button>
+        <button onClick={openModal} class="btn btn-primary">See Details</button>
       </div>
+
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Instructions Modal"
+      >
+        <h2>Instructions</h2>
+        <p>{meal.strInstructions}</p>
+        <button class='btn btn-primary' onClick={closeModal}>Close</button>
+      </Modal>
     </div>
   )
 }

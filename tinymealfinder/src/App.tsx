@@ -1,6 +1,8 @@
 import React, {useState, useRef, useEffect} from "react"
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'jquery/dist/jquery.js';
 import AppNavbar from './AppNavbar';
 
 import Container from 'react-bootstrap/Container';
@@ -23,7 +25,6 @@ async function fetchMealsByName(name:string){
       let mealsObject = JSON.parse(data)["meals"];
       meals = mealsObject as Array<MealDto>;
     })
-  console.log(meals)
   return meals;
 }
 
