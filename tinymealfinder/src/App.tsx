@@ -15,7 +15,7 @@ import MealDto from './MealDto';
 import { render } from '@testing-library/react';
 import MealList from './MealList';
 import { Meal } from "./backend/interfaces/Interfaces";
-import { searchMealsByName, searchMealsByIngredient } from "./backend/ApiCalls";
+import { searchMealsByName, searchMealsByIngredient, getAreasList } from "./backend/ApiCalls";
 
 function App() {
   //meals: die Elemente des State
@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const fetchMeals = async () => {
       const data = await searchMealsByName('');
-      setMeals(data)
+      setMeals(data);
     }
 
     setMeals(new Array<MealDto>());
