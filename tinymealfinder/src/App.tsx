@@ -11,10 +11,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import MealDto from './MealDto';
 import { render } from '@testing-library/react';
 import MealList from './MealList';
-import { Meal } from "./backend/interfaces/Interfaces";
+import { MealDto } from "./backend/interfaces/Interfaces";
 import { searchMealsByName, searchMealsByIngredient } from "./backend/ApiCalls";
 
 function App() {

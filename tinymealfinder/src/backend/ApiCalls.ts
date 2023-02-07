@@ -1,5 +1,4 @@
-import MealDto from "../MealDto";
-import { Meal } from "./interfaces/Interfaces";
+import { Meal, MealDto } from "./interfaces/Interfaces";
 
 export async function searchMealsByName(name: string): Promise<MealDto[]> {
 	const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURI(name)}`)
