@@ -12,3 +12,10 @@ export interface Ingredient {
   amount?: string;
 }
 
+export interface MealDto {
+    idMeal: number;
+    strCategory: string;
+    strMeal: string;
+    strInstructions: string;
+    strMealThumb: string;
+}
