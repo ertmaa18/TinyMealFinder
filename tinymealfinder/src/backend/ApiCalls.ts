@@ -1,6 +1,7 @@
+import MealDto from "../MealDto";
 import { Meal } from "./interfaces/Interfaces";
 
-export async function searchMealsByName(name: string): Promise<Meal[]> {
+export async function searchMealsByName(name: string): Promise<MealDto[]> {
 	const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${encodeURI(name)}`)
 
 	const data = await response.json()
@@ -13,8 +14,8 @@ export async function searchMealsByName(name: string): Promise<Meal[]> {
 	}
 }
 
-export async function searchMealsByIngredient(name: string): Promise<Meal[]> {
-	const response = await fetch(`hhttps://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURI(name) }`)
+export async function searchMealsByIngredient(name: string): Promise<MealDto[]> {
+	const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${encodeURI(name)}`)
 
 	const data = await response.json()
 	if (response.ok) {

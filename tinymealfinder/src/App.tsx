@@ -15,18 +15,7 @@ import MealDto from './MealDto';
 import { render } from '@testing-library/react';
 import MealList from './MealList';
 import { Meal } from "./backend/interfaces/Interfaces";
-
-async function fetchMealsByName(name:string){
-  let url:string = "https://www.themealdb.com/api/json/v1/1/search.php?s=" + encodeURI(name);
-  let meals:Array<MealDto> = new Array<MealDto>();
-  await fetch(url)
-    .then(resp => resp.text())
-    .then(data => {
-      let mealsObject = JSON.parse(data)["meals"];
-      meals = mealsObject as Array<MealDto>;
-    })
-  return meals;
-}
+import { searchMealsByName, searchMealsByIngredient } from "./backend/ApiCalls";
 
 function App() {
   //meals: die Elemente des State
@@ -38,7 +27,7 @@ function App() {
   // zum laden
   useEffect(() => {
     const fetchMeals = async () => {
-      const data = await fetchMealsByName('');
+      const data = await searchMealsByName('');
       setMeals(data)
     }
 
@@ -55,7 +44,7 @@ function App() {
 
   var search = async function(){
     let searchInput = (document.getElementById("searchInput") as HTMLInputElement).value
-    let newMeals:Array<MealDto> = await fetchMealsByName(searchInput);
+    let newMeals:Array<MealDto> = await searchMealsByName(searchInput);
     setMeals(newMeals);
   }
 
