@@ -34,7 +34,19 @@ export async function getAreasList(): Promise<string[]> {
 	const data = await response.json()
 	if (response.ok) {
 		//const meals: Meal[] = data?.meals
-		const meals: string[] = data?.meals.map((m: any) => m.strArea).filter((a: any) => a != "Unknown")
+		const meals: string[] = data?.meals.map((m: any) => m.strArea).filter((a: any) => a !== "Unknown")
+		return await meals;
+	} else {
+		return []
+	}
+}
+
+export async function searchMealsByArea(name: string): Promise<MealDto[]> {
+	const response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${encodeURI(name)}`)
+
+	const data = await response.json()
+	if (response.ok) {
+		const meals = data?.meals
 		return await meals;
 	} else {
 		return []
