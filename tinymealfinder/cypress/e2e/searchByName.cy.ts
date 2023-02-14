@@ -30,6 +30,6 @@ describe("Meal finder ", () => {
     cy.get("#searchInput").click();
     cy.get('input[type="search"]').clear();
     cy.get("#searchInput").click();
-    cy.contains("Corba").should("be.visible")
+    cy.contains("Corba").should("be.visible");
   });
 });
